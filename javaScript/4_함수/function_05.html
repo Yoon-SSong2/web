@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //화살표 함수 (Arrow Funciton)사용법
+        //함수 표현식 보다 더 간결하고 (짧게 줄여짐) 편리하게 함수를 만들 수 있다
+
+       // [1]
+       // let arrFunc=function(a,b){
+       //     return a + b
+       // }
+      //  console.log(arrFunc(10,20))
+      //10은 a로 20은 b로 들어가 a+b명령어를 만나 30이 되어서 return(밖으로 던져준다)으로 arrFunc자체가 30이 된다
+
+        //[2]화살표함수
+             // let arrFunc=function(a,b){
+       //     return a + b
+       // }
+      //  console.log(arrFunc(10,20))
+
+    //   실행문이 한줄일때 {} 생략할 수 있다
+    //   화살표 함수일대 실행문이 한줄이고 return문이라면 {}와 return을 함게 생략해야 한다.
+
+        // let arrFunc=(a,b)=>{
+        //     return a+b
+        // }
+        let arrFunc=(a,b)=> a+b //한줄처리할때
+        console.log(arrFunc(10,20))
+
+        //[3] 인자값이 하나일때 --()를 줄일수 있다. 단 인자값이 2개이상이거나 없거나 할때는 줄일수 없다.
+
+
+        // let arrFunc2=function(name){
+        //     console.log(`반갑습니다 ${name} 회원님~`)
+        // } 한줄로 처리하기 (밑에 보기)
+        let arrFunc2=(name)=>console.log(`반갑습니다 ${name} 회원님~`)
+            arrFunc2('홍길동')
+        
+       // console.log(arrFunc2("홍길동")) 내가한거
+
+    //    let arrFunc3=function(num){
+        
+    //     return num*2
+    //    }
+    //  let arrFunc3=(num)=>{
+        
+    //         return num*2
+    //        }
+     let arrFunc3=(num)=>num*2           
+       let result3=arrFunc3(10)
+       console.log(result3)
+
+
+    //    let arrFunc4=function(a,b){
+    //     return a+b
+    //    }
+      // let arrFunc4=(a,b)=> {
+    //     return a+b
+    //    }
+       let arrFunc4=(a,b)=> a+b
+
+       let result4=arrFunc4(2,4)
+       console.log(result4)
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

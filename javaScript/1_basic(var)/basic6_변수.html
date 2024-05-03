@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //var,let,const 변수를 선언할때 사용하는 키워드
+
+        console.log(name)//var는 옛날방식 요즘은 사용하지 않음 옛날에 만든 프로그램에는 var가 남아있음 let과 다르게 var는 순서와 상관없이 언급되는듯
+        //var는 다른 변수와 달리 1순위라 let과는 다름 순서대로 읽혀지지않음 ,어디에서나 다 보이는 그런존재
+        var name="홍길동";
+        console.log(name);
+
+        var name="이순신";//var로 선언하면 이름의 변수가 생성되어 혼란이 생성될수 있음 ex)name이 이미 홍길동에서 언급이 되었는데 이순신에도 언급 하지만 에러가 생기지 않음 이게 가장 큰 문제점임
+
+
+        //Er console.log(name2) - name2가 선언되기전에 언급되서 에러가뜬다
+        let name2="강감찬";
+        console.log(name2);
+
+        //let name2="장발장" let은 같은 이름의 변수가 생성될 수 없다. name2가 이미 강감찬에 있는데 장발장을 언급하려면 밑에 빨간물결이 뜬다.즉 에러가 뜬다
+         name2="을지문덕"
+         console.log(name2)
+        //--------------------------------------------------------------------------------------------------------------------------------
+
+        //const - 상수(변하지 않는 값), 대문자로 적는다
+                
+        const PI=3.14; //PI-파이
+    
+        //const FIRST - 선언만 하면 오류발생, 선언과 동시에 반드시 할당, 셋팅해야 함
+    
+        // Er  PI=333; 상수를 다시 선언할 수 없음 
+        console.log(PI)
+    
+    </script>
+</body>
+</html>

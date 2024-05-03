@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 onclick="myfunc()">제목입니다.</h1>
+    <script>
+        //함수 - 함수선언문 vs 함수표현식(함수자체가 값으로 취급된다)
+        // (1)함수선언문- 함수를 이름을 붙여 선언하는것 
+        //                 배웠던방식
+        // (2)함수 표현식 - 함수를 하나의 "값"으로 취급한다.
+        //                 값으로 취급할 수 있기 떄문에 변수에 대입(할당)도 할 수 있음
+        let 함수 = function(){//function의 함수가 함수라는 변수이름에 들어가있다.
+            console.log("함수표현식")
+        }
+        //함수는 함수를 호출해야 실행된다.
+        함수();
+        console.log(함수) //함수 자체 (function)가 출력이 된다
+        
+
+        myfunc()
+
+
+
+        function myfunc(){
+            console.log("함수선언문")
+        }
+
+        //함수 선언문과 함수 표현식의 차이
+        // [1] 함수는 만드는 방법 자체가 다름
+        // [2] 함수를 호출하는 위치가 다르다
+        // [★] 함수 선언문은 호이스팅이라는 것이 됨
+        // (호이스팅이란 어디서나 참조할 수 있도록 높은 위치의 메모리 공간에 위치)
+        // 함수 선언문은 위에서 호출하던 아래에서 호출하던 상관이 없다.
+
+        
+        // 함수 표현식은 변수에 할당해야 하므로 호이스팅이 되지 않음
+
+
+        //이경우 안됌
+        //함수2();
+
+
+        let 함수2=function (){
+            console.log("안녕")
+        }
+        함수2();//이거는 왜 안돼냐  = 위에 함수2가 안되기때문에 더이상 읽지않아서 그럼 위에 함수2를 주석처리하면 됨
+       
+       
+        //이경우 myfunc2()이게 어디에 있어도 콘솔에 찍힌다 = 호이스팅
+        myfunc2()
+        function myfunc2(){
+            console.log("바이")
+        }
+        myfunc2()
+    </script>
+</body>
+</html>

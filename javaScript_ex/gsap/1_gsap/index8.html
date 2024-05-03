@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+       .imgs{
+        position: relative;
+        width: 626px;
+        height: 518px;
+        margin: 5vh auto 0;
+       }
+       .imgs>img{
+        position: absolute;
+        left: 0;right: 0;top: 0;bottom: 0;
+       }
+
+       .btn_wrap{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 5vh;
+        display: flex;
+        gap: 10px;
+       }
+       .btn_wrap a{
+        display: block;
+        padding: 5px 10px;
+        background-color: #222;
+        border-radius: 10px;
+        color: #fff;
+        text-decoration: none;
+       }
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="imgs">
+    <img src="./img/몸통.png" alt="몸통" class="몸통">
+    <img src="./img/오른다리.png" alt="오른다리" class="오른다리">
+    <img src="./img/오른팔.png" alt="오른팔" class="오른팔">
+    <img src="./img/왼다리.png" alt="왼다리" class="왼다리">
+    <img src="./img/왼팔.png" alt="왼팔" class="왼팔">
+</div>
+
+<div class="btn_wrap">
+    <a href="#" class="play">play</a>
+    <a href="#" class="pause">pause</a>
+    <a href="#" class="reverse">reverse</a>
+    <a href="#" class="restart">restart</a>
+    <a href="#" class="test">test</a>
+</div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        let tl=gsap.timeline({paused:true})//애니메이션 멈춤
+        tl.from('.몸통',{duration:1,
+            x:100,y:0,
+            opacity:0, 
+            ease: "back.out(0.9)",})
+
+        tl.from('.오른다리',{duration:1,
+            x:100,y:0,
+            opacity:0, 
+            ease: "back.out(0.7)",})
+        tl.add('test')
+        tl.from('.오른팔',{duration:1,
+            x:100,y:0,
+            opacity:0, 
+            ease: "back.out(0.9)",})
+        tl.from('.왼다리',{duration:1,
+            x:0, y:200,
+            opacity:0, 
+            ease: "back.out(0.9)",})
+        tl.from('.왼팔',{duration:1,
+            x:0,y:-100,
+            opacity:0, 
+            ease: "back.out(0.9)",})
+
+        document.addEventListener('click', function(e){
+
+            let check=e.target.classList//가장끝에잇는 노드. 객체 target = 내가 클릭한것의 제일 끝을 보여주는 명령어 부모가있고 자식이잇으면 자식중에 제일끝 자식
+         //   console.log(check)
+
+            if(check.contains("play")){//contains = 포함하고있니? ()괄호안의 내용을 포함하고있냐  
+                tl.play(); }
+            if(check.contains("pause")){tl.pause();}
+            if(check.contains("reverse")){tl.reverse();}
+            if(check.contains("restart")){tl.restart();}
+            //if(check.contains("test")){tl.play('test');}//tl.add(test)이후부터 실행
+            //if(check.contains("test")){tl.kill('test');}
+
+
+
+        })
+
+
+
+
+    </script>
+</body>
+</html>

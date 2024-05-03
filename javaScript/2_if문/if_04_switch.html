@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="num">번호선택 1,2,3 중 하나를 선택하시오</label>
+    <input type="number" id="num" onchange="valueChange();">
+    <div id="result"></div>
+
+
+
+
+    <script>
+        //switch조건문
+        //여러가지 평가에 따른 분기처리 할수있다
+        // case 2: ---num이 2라면
+        //  console.log("선물두개 당첨입니다")----실행문
+        // break ---switch문 종료된다
+        let num=3;
+        let text=documant.getElementById('result')
+        function valueChange(){           
+            num=document.getElementById("num").value 
+         //  console.log(typeof num)//string
+
+
+            let result=Number(num)//숫자로 바꿨다
+
+
+
+            switch(result){
+            case 1://1이라는걸 받았을때~ / num이 1이라면
+                text.innerHTML= "선물한개 당첨입니다"
+             console.log("선물한개 당첨입니다")
+            break  //break문을 만나면 함수가 종료된다
+            case 2:
+            text.innerHTML= "선물한개 당첨입니다"
+
+             console.log("선물두개 당첨입니다")
+            break
+            text.innerHTML= "선물한개 당첨입니다"
+
+            case 3:
+             console.log("선물세개 당첨입니다.")
+            break
+            default://num이 해당하는 case가 없을때
+            console.log("해당하는 번호가 아닙니다.")
+            break
+        }
+        };
+
+
+      //  let num=3;//버튼이3개가 있는거임
+
+        
+    </script>
+</body>
+</html>

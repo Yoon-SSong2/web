@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+
+        .main{height: 100vh;
+        position: relative;}
+       .imgs{
+        position: relative;
+        width: 626px;
+        height: 518px;
+        margin: 5vh auto 0;
+       }
+       .imgs>img{
+        position: absolute;
+        left: 0;right: 0;top: 0;bottom: 0;
+       }
+       .suqare{
+        position: absolute;top: 100px;left: 200px;
+        background-color: brown;
+        width: 100px;height: 300px;
+       }
+
+
+
+    </style>
+</head>
+<body>
+<div class="top" style="height: 100vh; background-color: gray;"></div>
+<div class="main">
+    <div class="imgs">
+        <img src="./img/몸통.png" alt="몸통" class="몸통">
+        <img src="./img/오른다리.png" alt="오른다리" class="오른다리">
+        <img src="./img/오른팔.png" alt="오른팔" class="오른팔">
+        <img src="./img/왼다리.png" alt="왼다리" class="왼다리">
+        <img src="./img/왼팔.png" alt="왼팔" class="왼팔">
+    </div>   
+    
+    <div class="suqare">사각형</div>
+</div>
+<div class="bottom" style="height: 100vh; background-color: gray;"></div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+     //   let value = document.querySelector('.suqare').offsetWidth = 영여그이 넓이
+        let value = document.querySelector('.suqare').offsetHeight
+        console.log(value)
+
+        let num = 3;
+        num += 4;//num = num+4
+        
+
+
+        let tl=gsap.timeline({
+            scrollTrigger:{
+                trigger:".suqare",
+                start:"top 60%",
+               // end:()=>`+=${document.querySelector('.suqare').offsetHeight}`,
+                //start지점에서 .square의 높이만큼 스크롤이 이동되면 애니메이션이 끝난다.
+                end:()=>`+=50%`,
+                markers:true, 
+                scrub:true,
+
+
+            }
+        })//애니메이션 멈춤
+        tl.from('.몸통',{duration:1,
+            x:100,y:0,
+            opacity:0, 
+            ease: "back.out(0.9)",})
+        tl.from('.오른다리',{duration:1,
+            x:100,y:0,
+            opacity:0, 
+            ease: "back.out(0.7)",})
+        tl.from('.오른팔',{duration:1,
+            x:100,y:0,
+            opacity:0, 
+            ease: "back.out(0.9)",})
+        tl.from('.왼다리',{duration:1,
+            x:0, y:200,
+            opacity:0, 
+            ease: "back.out(0.9)",})
+        tl.from('.왼팔',{duration:1,
+            x:0,y:-100,
+            opacity:0, 
+            ease: "back.out(0.9)",})
+
+
+
+    </script>
+</body>
+</html>

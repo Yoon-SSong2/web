@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="하나">하나</div>
+        <div class="두울">두울</div>
+        <div class="세엣">세엣</div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script>
+        // gsap.from('.하나',{x:500, opacity:0,duration:1})
+        // gsap.from('.두울',{x:500, opacity:0,duration:1,delay:1})
+        // gsap.from('.세엣',{x:500, opacity:0,duration:1,delay:2})
+        // //어디서 부터 0자리까지 오게하는것
+        //'+=1' = 1초뒤에 
+        //'-=1' = 1초앞으로 
+        //'<' = 바로앞  만일 세엣한테 '<'을 하면 바로앞 트윈은 '두울' 바로앞 트윈과 같은시간에 재생한다.
+
+
+        // gsap.from('.하나',{x:500, opacity:0,duration:1})
+        // gsap.from('.두울',{x:500, opacity:0,duration:1},'+=1') //delay랑 같은 의미 +=1(1초뒤에 실행)
+        // gsap.from('.세엣',{x:500, opacity:0,duration:1},'+=2')
+        let tl = gsap.timeline();
+            tl.to(".하나", {x: 500, duration: 1});
+            tl.to(".두울", {x: 500, duration: 1},'-=0.5');
+            tl.to(".세엣", {x: 500, duration: 1.5},'<=');
+ 
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        .wrap>div{height: 100vh;}
+        .div1{background-color: tomato;}
+        .div2{background-color:rgb(247, 229, 206);
+        padding-top: 50px;}
+        .div2>div{
+            width: 150px; height: 150px;
+            margin-bottom: 150px;
+        }
+        .square1{background-color: teal;
+        margin-top: 50px;}
+        .square1.active{background-color: blue;}
+        .square2{background-color: tan;
+        transition: 0.3s;}
+        .square2.active{background-color:aqua}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="div1"></div>
+        <div class="div2">
+            <div class="square1"></div>
+            <div class="square2"></div>
+        </div>
+        <div></div>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.to(".square1",{x:700, duration:3, 
+            scrollTrigger:{ trigger:".div2",
+            start: "top 30%", //trigger의 시작점 start: trigger의 주체(div2의 위치) 화면의 위치(포지션)
+             end:"center 10%", //trigger의 종료점 end: trigger의 주체(div2의 위치) 화면의 위치(포지션)
+            scrub:true,//stat와 end까지 애니메이션이 scroll에 반응하여 실행됨, 숫자를 입력할 수 있다.(0.5or2 이렇게 숫자로 할수있다)
+            markers:true,//start와 end등 애니메이션의 위치를 화면에 표시
+            pin:".div2", //애니메이션이 지속되는 동안 start지점에서 멈춤
+         //   toggleClass:"action",//start에 시작되면 div2에 action이라는 클래스가 추가되고 end지점에가면 action 이 없어진다
+           // toggleClass:{"targets":".square2",className:"active"} //stat와 end사이일때 square2에 active클래스가 추가되고 그외 영역에서는 active클래스가 빠진다
+            toggleClass:{"targets":[".square2",".square1"],className:"active"} //2개이상 일때 배열로 처리한다.
+
+        }})
+
+
+
+
+    </script>
+</body>
+</html>

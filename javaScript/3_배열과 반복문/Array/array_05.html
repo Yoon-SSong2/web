@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+   //배열 사용시 몰라서는 안되는 유용한 매서드(함수)
+
+   //배열은 여러가지 타입을 넣을수 있지만 일반적으로 같은 타입을 묶어서 배열한다.
+   //let array=["하늘",100,true]
+
+   //배열과 객체는 동적할당을 받음
+        //아파트같은 존재
+        //배열은 집
+    let arr = []
+    arr.push('한국')
+    arr.push('미국')
+    arr.push('중국')
+
+    console.log(arr)
+
+    let 동물 = ['사자','호랑이','늑대','코끼리','개','고양이','양','하마']
+    console.log(동물[0])
+    console.log(동물[3])
+    //배열중 가장끝에 있는 아이템이 콘솔이 찍히게 하기
+    //배열을 0부터 시작해서 -1을 해줘야한다.
+    console.log(동물[동물.length - 1])
+    //index 범위를 벗어나는 경우 - undefined
+    console.log(동물[22])
+
+    //반복(1.for  2.for..in  for..of  3.배열명.forEach())
+
+    //1.for
+    console.clear()
+    console.log("-------------------for")
+ //   for(1.초기값; 2.조건문 ; 4.증가감식){
+ //       3.조건문이 참일때 실행문
+ //   }
+    for(let i=0; i<동물.length;  i++){
+      document.write(동물[i])
+    
+   }
+  document.write("<br>")
+   let star = ['*****','****','***','**','*']
+   
+//  for (let i = 0; i < star.length; i++) {
+//     for (let j = 0; j < star[i].length; j++) {
+//         document.write('*');
+//     }
+//     document.write("<br>");
+// }
+
+    for(let i=0; i<5; i++){
+        for(let j=5; j>i; j--){
+              document.write('*')
+            }
+      document.write("<br>")
+    }
+
+    //for ..in
+
+    console.clear()
+    console.log("----------------for..in")
+    for(let i in 동물){
+        console.log(i)//index번호가 출력 - 0,1,2,3,4...
+    }
+    for(let i of 동물){
+        console.log(i)//value가 찍힘 - 사자.호랑이.늑대.....
+    }
+
+    //forEach
+    console.clear()
+    console.log("----------------for..Each")
+    //동물.forEach(function(요소,index번호, 원본배열)
+    동물.forEach(function(item,idx,oriarr){
+        console.log(item,idx,oriarr)
+    })
+
+  // 화살표 연산자 = 동물.forEach((item,idx,oriarr)=>console.log(item,idx,oriarr))
+
+
+    //Spread Operator(펼침연산자) = 배열내의 요소들을 하나씩 나열해 준다.(배열이 아님!!!!)
+    console.clear()
+    console.log("----------------Spread Operator")
+    console.log(동물)//배열이 나온다 = (8) ['사자', '호랑이', '늑대', '코끼리', '개', '고양이', '양', '하마]
+    console.log(...동물)//배열안에 있는 아이템들을 언급한다. (사자 호랑이 늑대 코끼리 개 고양이 양 하마)
+    console.log(...[동물])//배열이 나온다 = (8) ['사자', '호랑이', '늑대', '코끼리', '개', '고양이', '양', '하마]
+
+    //split()메서드
+    //기능 - 문자열을 배열로 리턴 - 즉, 문자열에서 특정한 구분자를 기준으로 잘라내서 새로운 배열로 리턴
+    //사용 - 문자열.split(separator(구분자),limit(한정값))
+
+    let someSt="고기도 먹어 본 사람이 더 잘 먹는다"; //문자열
+    let splitted=someSt.split(" ",3)
+    console.log(splitted)//(3) ['고기도', '먹어', '본'] = 배열로 로그에 찍힘
+
+    let someSt2="고기도,먹어,본,사람이,더,잘,먹는다"; 
+    let splitted2=someSt2.split(",",3)
+    console.log(splitted2)//['고기도', '먹어', '본']
+
+    let someSt3="고기도,먹어,본,사람이,더,잘,먹는다"; 
+    let splitted3=someSt3.split(",")
+    console.log(splitted3)//(7) ['고기도', '먹어', '본', '사람이', '더', '잘', '먹는다']
+
+    console.log(splitted3[splitted3.length-1])//먹는다
+
+    let array=['딸기','포도','복숭아','바나나','수박']
+    //slice() 메서드(원본배열 손상안됨)
+    //slice(start,end) end는 생략가능 slice(start[,end])-생략가능하다는 표시
+    //end = 지정한end 전까지 잘라냄
+
+    //array.slice(1);//index 1 포함해서 그 뒤로는 모두 잘라냄
+    //array.slice(1,4);//index 1 부터 4이전까지 잘라냄
+
+    let slice1 = array.slice(1)
+    console.log(slice1)//(4) ['포도', '복숭아', '바나나', '수박']
+    console.log(array)//(5) ['딸기', '포도', '복숭아', '바나나', '수박'] - 원본손상안됨
+
+    //splice()메서드  <-원본회손이 된다.
+    // 배열의 기존 요소를 삭제하거나 교체하고자 할때 원본이 수정됨
+
+
+    let array2=['딸기','포도','복숭아','바나나','수박']
+    
+   // let splice1=array2.splice(3) //index 3부터 뒤로 잘라서 출력함
+    
+   // console.log(splice1)// ['바나나', '수박']
+    //console.log(array2)//(3) ['딸기', '포도', '복숭아']
+
+   // let splice2=array2.splice(1,2)//index 1번부터 2개를 잘라 출력하겟다
+   // console.log(splice2)//(2) ['포도', '복숭아']
+
+    //let splice3=array2.splice(1,2,'강아지','고양이','쥐')//포도 복숭아자리에 강아지 고양이 쥐 를 넣게 하는것
+    //console.log(splice3)//(2) ['포도', '복숭아']
+   // console.log(array2)//(6) ['딸기', '강아지', '고양이', '쥐', '바나나', '수박']
+    //let splice4 = array2.splice(-2)//뒤에서 2개 출력
+    //console.log(splice4)(2)// ['바나나', '수박']
+
+    let splice5=array2.splice(1,0,"돼지")//잘려지는건 없다. index 1번자리에 돼지를 추가한다.
+    console.log(array2)//(6) ['딸기', '돼지', '포도', '복숭아', '바나나', '수박']
+
+    //배열 붙이기
+
+    let myArr1=[1,2,3,4,];
+    let myArr2=[1,2,3,4,];
+    let myArr3=myArr1.concat(myArr2)
+
+    console.log(myArr3)//[1, 2, 3, 4, 1, 2, 3, 4] 배열이 합쳐지고 원본에는 훼손없다
+
+    let str1 = '안녕!';
+    let str2 = '자바스크립트';
+
+    console.log(str1.concat(" ",str2))//안녕! 자바스크립트
+    console.log(str1.concat(", ",str2))//안녕!, 자바스크립트
+    console.log(str2.concat(", ",str1))//자바스크립트, 안녕!
+
+    let someArr=['안녕!', " ",'난'," ",'뽀로로라고해~','!!']
+
+    console.log("".concat(...someArr))
+
+    let 위인=['이순신','세종대왕','강감찬','김유신','홍길동']
+
+    console.log(위인.indexOf('강감찬'))//2
+    console.log(위인.indexOf('세종대왕'))//1
+    console.log(위인.indexOf('임꺽정'))//-1==> 없는 값을 indexof()메서드로 찾으면 -1이 리런
+
+    let abcArr1="ABCD EFGHIJKLMN";
+    console.log(abcArr1.indexOf("H"));//8
+    console.log(abcArr1.lastIndexOf("H"));//8
+    console.log(abcArr1.indexOf("h"));//-1 ==> 대소문자 구분
+
+    //indexof(찾을 특정 값,시작할 위치)
+    let abcArr2=['k','o','r','e','a','u','s','a'];
+    console.log(abcArr2.indexOf("a"))//4
+    console.log(abcArr2.indexOf("a",6))//7
+
+    let abcArr3="Hello, World~!!";
+    console.log(abcArr3.indexOf("o"))//4
+    console.log(abcArr3.indexOf("o",5))//8
+    console.log(abcArr3.indexOf("o",9))//-1
+
+    //배열에 특정 요소가 포함되어 있는지 없는지 알기-->includes()메서드
+    let 위인2=['이순신','세종대왕','강감찬','김유신','홍길동']
+    console.log(위인2.includes("강감찬"))//true
+    console.log(위인2.includes("원빈"))//false
+
+    //배열내 요소들을 하나로 묶어주기(문자열 타입으로 묶음)--join();
+
+    console.log(위인2.join())//이순신,세종대왕,강감찬,김유신,홍길동
+    console.log(위인2.join("-"))//이순신-세종대왕-강감찬-김유신-홍길동
+    console.log(위인2.join(" "))//이순신 세종대왕 강감찬 김유신 홍길동
+    console.log(위인2.join(", "))//이순신, 세종대왕, 강감찬, 김유신, 홍길동
+
+    //배열내 요소들을 거꾸로 출력하기 --reverse(); 원본을 훼손한다.
+    console.log(위인2.reverse())//(5) ['홍길동', '김유신', '강감찬', '세종대왕', '이순신']배열로 출력
+    console.log(위인2)//(5) ['홍길동', '김유신', '강감찬', '세종대왕', '이순신'] 원본이 훼손된다.
+
+    //조건에 맞는 첫번째 요소 찾기-- find()
+
+    let 위인3=['이순신','세종대왕','강감찬','김유신','홍길동']
+    let found=위인3.find((item)=>{
+        return item == "세종대왕";
+    })
+    console.log(found)
+
+    let nums = [56,34,89,95,100,90];
+    // let found2=nums.find(item=>item>80)
+    // let found2=nums.find((item)=>item>80)
+    let found2=nums.find((item)=>{
+        return item>80
+    }) 
+    console.log(found2)//89 조건에 맞는 요소가 89가 처음으로 발견되는 첫번째 결과값 출력하고 명령문 종료한다
+
+    //filter() 메서드 -  조건에 맞는 값을 모두 다 찾아줌.
+
+    let nums2 = [56,34,89,95,100,90];
+
+    let filRe=nums2.filter((item)=>{
+        return item>=80
+    })
+    console.log(filRe)//(4) [89, 95, 100, 90] 배열로 표현
+
+    let cars=[
+        {name:"테슬라",price:25000},
+        {name:"벤츠",price:35000},
+        {name:"테슬라",price:25000},
+        {name:"벤츠",price:66000},
+        {name:"아우디",price:45000},
+    ]
+
+    console.log(cars[1].name)//벤츠
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // if문함수 switch do while
+
+        //if문 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!겁나게 중요!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+       // [1] 기본 사용법
+       // if(조건문){조건이 만족했을때 실행문}-조건에 맞지않앗을때는 실행문에 오지도 못한다.
+        let 키=165;
+        if(키>160){
+            console.log("바이킹입장")
+        }
+
+        /* if(조건문1){
+            조건문1을 만족할때 실행되는문
+        }else if(조건문2){
+            조건문1을 만족하지 않고 조건문2에 만족할때 실행되는문
+        }else{
+            조건문1,2 둘다 만족하지 않을때 실행되는 문
+        } */
+
+        let spot_score=95;
+        if(spot_score>90){
+            console.log("사이다 먹어요")
+        }else if(spot_score>80){
+            console.log("사탕 먹어요")
+        }else if(spot_score>70){
+            console.log("참 잘했어요")
+        }else{
+            console.log("화장실 청소")
+        }
+
+        //if문 축소 --한 줄 일떄
+    
+
+        let score=80;
+
+        if(score>70){console.log("참 잘했어요")}
+       // if(score>70)console.log("참 잘했어요") --중괄호 생략가능
+        /*     if(score>70)
+                      console.log("참 잘했어요") --이렇게도 가능*/ 
+        
+        //if문이 2줄이상일때는 꼭!! 중괄호로 묶어줘야함 1줄일때는 인식하지만 2줄일때는 인식을 못함               
+        if(score>70)
+            console.log("참잘했어요")
+            console.log("조건문에 해당하지 않습니다.") //--이거는 위에 if문이랑 따로라서 그냥 논외임
+
+    
+        //산술연산자
+
+        let one=5;
+        let two=2;
+        console.log(one+two)//=7
+        console.log(one-two)//=3
+        console.log(one*two)//곱하기=10
+        console.log(one/two)//나누기의 몫=2.5
+        console.log(one%two)//나누기의 나머지=1
+        console.log(one**two)//거듭제곱=25
+
+        let num=1;
+        console.log(++num)//=2가 된다 앞으로 ++이오면 이미 더해지고 출력된다
+        // console.log(num++) 하나만 있을때 콘솔에 1이 적혀지고 그다음명령어가 정해지면 그때 2가 된다=1
+        // console.log(num++)=2
+
+        let num2=3;
+/*         console.log(num2--)//3이출력되고
+        console.log(num2)//=2가 출력 3먼저 출력되고 -1한다음에 2가 출력
+ */        
+        console.log(--num2)//=2 바로 2가 출력된다 
+
+        //대입연산자
+
+        //=우항의 내용을 좌항의 변수에 입력, 할당, 셋팅 한다.
+        let pink=30;//pink에 30을 대입한다
+
+        //복합 대입연산자
+        //+=
+
+        let x=3;
+        //console.log(x +=2) //x+=2 의 뜻은 x=x+2  3=3+2이런내용인데 3+2값을 맨앞에 3에 넣는다 그럼 5가 출력된다
+       // console.log(x -=2)//x -=2 --x=x-2 ,3=3-2니까 맨앞 3이 1이된다
+       //console.log(x /=2)//3=3/2 = 맨앞3이 1.5가 된다
+       // console.log(x %=2) //3=3%2 맨앞3이 1이된다
+      // console.log(x **=2) //3=3*2의 거듭제곱36
+
+      //비교연산자
+      // ==  - x == y :x와 y의 값이 같으면 true를 반환한다.console
+      // === - x===y : x와 y의 값이 type까지 같으면 true를 반환한다.
+      // != - x != y : x 와 y 의 값이 다르면 true를 반환한다.
+      // !== - x !== y : x 와 y 의 값과 type까지 다르면 true를 반환한다.값이 다르면 type까지 안보고 넘어가고 값이 같을때 타입이 다르면 true반환
+      //값이 다르면 바로 true가 반환 type까지 보지않는다. 
+      // > x>y    x가 y보다 크면 true반환
+      // <   x<y       x가 y보다 작으면 true반환
+      // <=   x<=y     x가 y보다 작거나 같으면 true반환
+      // >=   x>=y   x가 y보다 크거나 같흐면 true반환  
+
+        let xx=3;//숫자
+        let yy="3";//문자
+
+        console.log(xx==yy)//결과값 true ==두개는 type(문자, 숫자, Null, boolean ,undefined )을 비교하지않음 숫자 3과 문자3이 같으니 true가 나타나는것(문자열인지 숫자인지 따지지않는다)
+        console.log(xx===yy)//=== 세개는 type(문자, 숫자, Null, boolean ,undefined )까지 비교한다 숫자인 3과 문자인 3은 type이 같지않으니 false가 나타난다type도 같으면 true가 나타난다
+        console.log(xx!=yy) //false
+        console.log(xx!==yy)//true
+
+        let height =177;
+        if(height ===170){
+            console.log("조건이 참입니다.")
+        }
+
+     //논리 연산자
+     // &&  - x && y : x 가 참이고 y 가 참이면 참
+                    // x 가 거짓이고 y 가 참이면 거짓
+                    // x 가 참이고 y 가 거짓이면 거짓  x와 y중 하나라도 거짓이면 거짓으로 나타난다
+                        /* and연산자 */
+
+     // || - x || y  : x 가 참이고 y가 참이면 참              
+                    // x 와 y 둘중 하나라도 참이면 참으로 나타난다
+                        /* or연산자 */
+     // ! - x !y : x가 참이면 거짓. x가 거짓이면 참                   
+    </script>
+</body>
+</html>
